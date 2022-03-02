@@ -1,3 +1,6 @@
 [submodule "nvim"]
 	path = nvim
 	url = /home/civitasv/.config/nvim
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/Civitasv/nvimrc
