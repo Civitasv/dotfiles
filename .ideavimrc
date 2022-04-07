@@ -2,6 +2,14 @@ let mapleader=" "
 
 """ Basic Options
 set clipboard=unnamedplus " enables the clipboard between Neovim and other applications
+set relativenumber
+set wrap
+set linebreak
+set expandtab
+set shiftwidth=2
+set ignorecase
+set noerrorbells
+set autoread
 
 """ Plugins  --------------------------------
 set surround
