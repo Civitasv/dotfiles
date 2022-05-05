@@ -1,7 +1,11 @@
 [https]
-  # proxy = http://127.0.0.1:51837
+  proxy = http://127.0.0.1:51837
 [http]
-  # proxy = http://127.0.0.1:51837
+  proxy = http://127.0.0.1:51837
 [user]
 	name = Civitasv
 	email = hscivitasv@gmail.com
+[credential]
+	helper = store
+[core]
+	autocrlf = false
