@@ -9,3 +9,5 @@
 	helper = store
 [core]
 	autocrlf = false
+[pull]
+	rebase = false
