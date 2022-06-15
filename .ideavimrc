@@ -41,18 +41,19 @@ map gt <Action>(GotoTest)
 map gu <Action>(FindUsages)
 map gk <Action>(Back)
 map gj <Action>(Forward)
-
+map U <c-r>
+map <leader>b <Action>(BuildProject)
 map <leader>d <Action>(Debug)
-map <leader>r <Action>(Run)
+map <leader>r <Action>(•••••••••••Run)
 map <leader>n <Action>(RenameElement)
 map <leader>c <Action>(Stop)
 map <leader>f <Action>(ReformatCode)
+map == <Action>(ReformatCode)
 
 map <leader>p <Action>(SelectInProjectView)
 map <leader>a <Action>(Annotate)
 map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
 
-map <leader>b <Action>(ToggleLineBreakpoint)
 map <leader>o <Action>(FileStructurePopup)
 
 " Toggle case and start typing. E.g. `<leader>iget`: `property` -> `getProperty`
