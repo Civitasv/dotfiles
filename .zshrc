@@ -111,7 +111,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=nvim
 
-
 # where proxy
 proxy () {
   export http_proxy="http://127.0.0.1:51837"

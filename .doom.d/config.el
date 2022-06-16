@@ -17,8 +17,8 @@
 (set-language-environment "UTF-8")
 
 ;; Font stuff
-(setq doom-font (font-spec :family "Source Code Pro" :size 20))
-(setq doom-variable-pitch-font (font-spec :family "Source Code Pro" :size 20))
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 20))
+(setq doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font" :size 20))
 (setq doom-unicode-font (font-spec :family "LXGW Wenkai" :size 18))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
