@@ -133,3 +133,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Add doom emacs bin
 export PATH="$HOME/.emacs.d/bin:$PATH"
+
+xmodmap ~/.Xmodmap
