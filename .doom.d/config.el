@@ -17,9 +17,9 @@
 (set-language-environment "UTF-8")
 
 ;; Font stuff
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 20))
-(setq doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font" :size 20))
-(setq doom-unicode-font (font-spec :family "LXGW Wenkai" :size 18))
+(setq doom-font (font-spec :family "Source Code Pro" :size 20)
+      doom-variable-pitch-font (font-spec :family "Source Code Pro" :size 20)
+      doom-unicode-font (font-spec :family "LXGW Wenkai" :size 18))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -48,7 +48,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-dracula)
 
 ;; make search elegant
 (use-package! ivy
@@ -57,8 +57,7 @@
 ;; I prefer counsel to switch buffer
 (map! :leader
       :desc "Switch Buffer"
-      "<"
-      #'counsel-switch-buffer)
+      "<" #'counsel-switch-buffer)
 
 ;; Stop creating backup~ files
 (setq make-backup-files nil)
@@ -70,12 +69,13 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-(after! org (setq org-superstar-headline-bullets-list '("◉" "○" "●" "○" "●" "○" "●")))
+(after! org
+  (setq org-superstar-headline-bullets-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 (if (not (display-graphic-p))
     (progn
       ;; 增大垃圾回收的阈值，提高整体性能（内存换效率）
-      (setq gc-cons-threshold (* 8192 8192 100))
+      (setq gc-cons-threshold (* 8192 8192 400))
       ;; 增大同LSP服务器交互时的读取文件的大小
       (setq read-process-output-max (* 1024 1024 256)) ;; 128MB
       ))
@@ -114,16 +114,20 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-(after! evil
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
-
-(map! :map evil-motion-state-map
-      :n "U" "C-r"
-      "C-j" #'evil-window-down
-      "C-k" #'evil-window-up
-      "C-h" #'evil-window-left
-      "C-l" #'evil-window-right)
+(map!
+ :n "U" #'evil-redo
+ :n "j" #'evil-next-visual-line
+ :n "k" #'evil-previous-visual-line
+ :n "C-j" #'evil-window-down
+ :n "C-k" #'evil-window-up
+ :n "C-h" #'evil-window-left
+ :n "C-l" #'evil-window-right
+ :n "C-n" #'+treemacs/toggle
+ :n "C-<left>" #'+evil/window-move-left
+ :n "C-<down>" #'+evil/window-move-down
+ :n "C-<up>" #'+evil/window-move-up
+ :n "C-<right>" #'+evil/window-move-right
+ )
 
 ;; Automatically tangle our config.org config file when we save it
 (defun org-babel-tangle-config ()
@@ -134,4 +138,4 @@
       (org-babel-tangle))))
 
 (add-hook 'org-mode-hook
-  (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config :append :local)))
+          (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config :append :local)))
