@@ -10,56 +10,49 @@ set shiftwidth=2
 set ignorecase
 set noerrorbells
 set autoread
+set showmode
+set so=5
+set incsearch
 
 """ Plugins  --------------------------------
 set surround
+set multiple-cursors
 set commentary
+set easymotion
 set argtextobj
 
 """ Plugin settings -------------------------
 let g:argtextobj_pairs="[:],(:),<:>"
 
-" <C-n> seems to me as a better solution than <M-n>,
-" but we should finally support vim-visual-multi because vim-multiple-cursors is deprecated now
-map <C-n> <Plug>NextWholeOccurrence
-
-""" Common settings -------------------------
-set showmode
-set so=5
-set incsearch
-
 """ Idea specific settings ------------------
 set ideajoin
-set ideastatusicon=orange
+set ideastatusicon=gray
+set clipboard+=ideaput
 
-""" My Mappings -----------------------------
+""" Keymapping -------------------------------
+""" Normal Mode
+noremap U <C-r>
+map j gj
+map k gk
+noremap n nzzzv
+noremap N Nzzzv
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 
-map gd <Action>(GotoDeclaration)
-map ge <Action>(GotoNextError)
-map gi <Action>(GotoImplementation)
-map gt <Action>(GotoTest)
-map gu <Action>(FindUsages)
-map gk <Action>(Back)
-map gj <Action>(Forward)
-map U <c-r>
-map <leader>b <Action>(BuildProject)
-map <leader>d <Action>(Debug)
-map <leader>r <Action>(•••••••••••Run)
-map <leader>n <Action>(RenameElement)
-map <leader>c <Action>(Stop)
-map <leader>f <Action>(ReformatCode)
-map == <Action>(ReformatCode)
+noremap <Tab> :bn<CR>
+noremap <S-Tab> :bp<CR>
 
-map <leader>p <Action>(SelectInProjectView)
-map <leader>a <Action>(Annotate)
-map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+noremap <A-j> <Action>(MoveStatementDown)
+noremap <A-Down> <Action>(MoveStatementDown)
+noremap <A-k> <Action>(MoveStatementUp)
+noremap <A-Up> <Action>(MoveStatementUp)
 
-map <leader>o <Action>(FileStructurePopup)
+noremap <C-s> <Action>(Find)
+noremap <C-f> <Action>(FindInPath)
 
-" Toggle case and start typing. E.g. `<leader>iget`: `property` -> `getProperty`
-map <leader>i ~hi
-" Remove selection and toggle case. E.g. `v2l<leader>u`: `getProperty` -> `property`
-vmap <leader>u d~h
+noremap <leader>gg <Action>(CheckinProject)
 
-""" Strict mode for development ---------------
-set ideastrictmode
+
+

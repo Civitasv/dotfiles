@@ -135,6 +135,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Add doom emacs bin
 export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/home/civitasv/.local/share/pnpm"
@@ -143,3 +144,18 @@ export PATH="$PNPM_HOME:$PATH"
 
 alias s="kitty +kitten ssh"
 alias icat="kitty +kitten icat"
+
+alias xx="xmodmap ~/.Xmodmap"
+
+# flutter
+export PATH="$HOME/flutter/flutter/bin:$PATH"
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+export CHROME_EXECUTABLE=microsoft-edge-stable 
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  . /opt/visual-studio-code/resources/app/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-rc.zsh
+fi
