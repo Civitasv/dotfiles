@@ -119,6 +119,7 @@ proxy () {
   export https_proxy="http://127.0.0.1:51837"
   # npm config set proxy http://127.0.0.1:51837
   # npm config set https-proxy http://127.0.0.1:51837
+  git config --global http.proxy http://127.0.0.1:51837
   echo "HTTP Proxy on"
 }
 
@@ -126,6 +127,7 @@ proxy () {
 noproxy () {
   unset http_proxy
   unset https_proxy
+  git config --global --unset http.proxy
   echo "HTTP Proxy off"
 }
 
@@ -145,8 +147,6 @@ export PATH="$PNPM_HOME:$PATH"
 alias s="kitty +kitten ssh"
 alias icat="kitty +kitten icat"
 
-alias xx="xmodmap ~/.Xmodmap"
-
 # flutter
 export PATH="$HOME/flutter/flutter/bin:$PATH"
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
@@ -159,3 +159,6 @@ source <(ng completion script)
 if [[ "$TERM_PROGRAM" == "vscode" ]]; then
   . /opt/visual-studio-code/resources/app/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-rc.zsh
 fi
+
+# CMake
+export PATH="/usr/bin/cmake:$PATH"

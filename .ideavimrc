@@ -44,15 +44,13 @@ noremap <C-l> <C-w>l
 noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 
-noremap <A-j> <Action>(MoveStatementDown)
-noremap <A-Down> <Action>(MoveStatementDown)
-noremap <A-k> <Action>(MoveStatementUp)
-noremap <A-Up> <Action>(MoveStatementUp)
+map <A-j> <Action>(MoveStatementDown)
+map <A-Down> <Action>(MoveStatementDown)
+map <A-k> <Action>(MoveStatementUp)
+map <A-Up> <Action>(MoveStatementUp)
 
-noremap <C-s> <Action>(Find)
-noremap <C-f> <Action>(FindInPath)
+map <C-s> <Action>(Find)
+map <C-f> <Action>(FindInPath)
 
-noremap <leader>gg <Action>(CheckinProject)
-
-
-
+map <leader>gg <Action>(CheckinProject)
+map <leader>lf <Action>(ReformatCode)
