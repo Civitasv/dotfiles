@@ -53,4 +53,4 @@ map <C-s> <Action>(Find)
 map <C-f> <Action>(FindInPath)
 
 map <leader>gg <Action>(CheckinProject)
-map <leader>lf <Action>(ReformatCode)
+map <leader>f= <Action>(ReformatCode)

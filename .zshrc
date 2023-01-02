@@ -80,6 +80,7 @@ ZSH_THEME="gozilla"
 plugins=(
   git
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
@@ -112,6 +113,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=nvim
+alias emacs="emacsclient -c -a emacs"
 
 # where proxy
 proxy () {
@@ -135,8 +137,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Add doom emacs bin
-export PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # pnpm
