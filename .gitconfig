@@ -1,5 +1,5 @@
-[https]
-  proxy = http://127.0.0.1:51837
+; [https]
+;   proxy = http://127.0.0.1:51837
 [user]
 	name = Civitasv
 	email = hscivitasv@gmail.com
@@ -7,14 +7,33 @@
 [credential]
 	helper = store
 [core]
+  editor = vi
 	autocrlf = input
 [pull]
 	rebase = false
 [diff]
 	tool = nvimdiff
+  guitool = nvimdiff
 [difftool]
 	prompt = false
+[merge]
+  tool = nvimdiff
+  conflictstyle = diff3
+[mergetool]
+  keepBackup = false
+  trustExitCode = false
+  prompt = true
+[mergetool "nvimdiff"]
+  layout = LOCAL,MERGED,REMOTE
+  cmd = vi -f -c \"Gdiffsplit!\" \"$MERGED\"
 [commit]
 	gpgsign = true
+; [http]
+; 	proxy = http://127.0.0.1:51837
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [http]
 	proxy = http://127.0.0.1:51837

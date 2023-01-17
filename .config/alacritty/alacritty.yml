@@ -15,55 +15,27 @@ window:
   dynamic_padding: false
   decorations: full
   startup_mode: Maximized
-  opacity: 0.95
+  opacity: 1.0
 font:
   normal:
-    family: Sauce Code Pro Nerd Font
+    family: Iosevka Nerd Font
     style: Medium
   bold:
-    family: Sauce Code Pro Nerd Font
+    family: Iosevka Nerd Font
     style: Bold
   italic:
-    family: Sauce Code Pro Nerd Font
+    family: Iosevka Nerd Font
     style: Italic
-  size: 15.0
+  size: 16.0
   offset:
     x: 0
-    y: 4
+    y: 0
   glyph_offset:
     x: 0
     y: 0
 
 use_thin_strokes: true
-draw_bold_text_with_bright_colors: false
-colors:
-  # Default colors
-  primary:
-    background: '#2E3440'
-    foreground: '#D8DEE9'
-
-  # Normal colors
-  normal:
-    black: '#3B4252'
-    red: '#BF616A'
-    green: '#A3BE8C'
-    yellow: '#EBCB8B'
-    blue: '#81A1C1'
-    magenta: '#B48EAD'
-    cyan: '#88C0D0'
-    white: '#E5E9F0'
-
-  # Bright colors
-  bright:
-    black: '#4C566A'
-    red: '#BF616A'
-    green: '#A3BE8C'
-    yellow: '#EBCB8B'
-    blue: '#81A1C1'
-    magenta: '#B48EAD'
-    cyan: '#8FBCBB'
-    white: '#ECEFF4'
-theme: Nord
+draw_bold_text_with_bright_colors: true
 
 bell:
   animation: EaseOutExpo
@@ -72,6 +44,12 @@ bell:
 
 shell:
   program: zsh
+
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+
+env:
+  TERM: xterm-256color
 
 # Add keybindings
 key_bindings:
