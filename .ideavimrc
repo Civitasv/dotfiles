@@ -44,9 +44,7 @@ noremap <C-l> <C-w>l
 noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 
-map <A-j> <Action>(MoveStatementDown)
 map <A-Down> <Action>(MoveStatementDown)
-map <A-k> <Action>(MoveStatementUp)
 map <A-Up> <Action>(MoveStatementUp)
 
 map <C-s> <Action>(Find)
@@ -54,3 +52,14 @@ map <C-f> <Action>(FindInPath)
 
 map <leader>gg <Action>(CheckinProject)
 map <leader>f= <Action>(ReformatCode)
+
+map <leader>cb <Action>(BuildProject)
+map <leader>cr <Action>(Run)
+map <leader>cd <Action>(Debug)
+
+map <leader>db <Action>(ToggleLineBreakpoint)
+map <A-j> <Action>()
+map <A-k> <Action>()
+map <A-h> <Action>()
+map <A-i> <Action>()
+map <A-o> <Action>()

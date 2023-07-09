@@ -1,5 +1,3 @@
-; [https]
-;   proxy = http://127.0.0.1:51837
 [user]
 	name = Civitasv
 	email = hscivitasv@gmail.com
@@ -7,13 +5,15 @@
 [credential]
 	helper = store
 [core]
-  editor = vi
+  editor = nvim
 	autocrlf = input
+  pager = delta
 [pull]
 	rebase = false
 [diff]
 	tool = nvimdiff
   guitool = nvimdiff
+  colorMoved = default
 [difftool]
 	prompt = false
 [merge]
@@ -28,12 +28,15 @@
   cmd = vi -f -c \"Gdiffsplit!\" \"$MERGED\"
 [commit]
 	gpgsign = true
-; [http]
-; 	proxy = http://127.0.0.1:51837
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 [http]
 	proxy = http://127.0.0.1:51837

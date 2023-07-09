@@ -15,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gozilla"
+ZSH_THEME="cypher"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -113,7 +113,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=nvim
-alias emacs="emacsclient -c -a emacs"
 
 # where proxy
 proxy () {
@@ -156,9 +155,31 @@ export CHROME_EXECUTABLE=microsoft-edge-stable
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
-if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-  . /opt/visual-studio-code/resources/app/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-rc.zsh
-fi
-
 # CMake
 export PATH="/usr/bin/cmake:$PATH"
+
+# zig
+export PATH="$HOME/Documents/workflow/zig-project/zig-linux-x86_64-0.11.0-dev.3316+ec58b475b/:$PATH"
+
+# vi
+set -o vi
+export EDITOR=nvim
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/civitasv/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/civitasv/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/civitasv/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/civitasv/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# k8s
+export PATH="/home/civitasv/.local/bin:$PATH"
+source <(kubectl completion zsh)
