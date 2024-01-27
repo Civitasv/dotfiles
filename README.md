@@ -8,6 +8,7 @@
 - [i3blocks](./.config/i3blocks/)
 - [kitty](./.config/kitty/)
 - [neovim](./.config/nvim/)
+- [emacs](./.config/doom/)
 - [ranger](./.config/ranger/)
 - [rofi](./.config/ranger/)
 - [zellij](./.config/zellij//)
