@@ -1,42 +1,23 @@
 [user]
 	name = Civitasv
 	email = hscivitasv@gmail.com
-	signingkey = DF474EA79AEF6CD2
-[credential]
-	helper = store
-[core]
-  editor = nvim
-	autocrlf = input
-  pager = delta
 [pull]
-	rebase = false
-[diff]
-	tool = nvimdiff
-  guitool = nvimdiff
-  colorMoved = default
-[difftool]
-	prompt = false
-[merge]
-  tool = nvimdiff
-  conflictstyle = diff3
-[mergetool]
-  keepBackup = false
-  trustExitCode = false
-  prompt = true
-[mergetool "nvimdiff"]
-  layout = LOCAL,MERGED,REMOTE
-  cmd = vi -f -c \"Gdiffsplit!\" \"$MERGED\"
-[commit]
-	gpgsign = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[interactive]
-  diffFilter = delta --color-only
-[delta]
-  navigate = true    # use n and N to move between diff sections
-  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+	rebase = true
 [http]
-	proxy = http://127.0.0.1:51837
+	proxy = http://127.0.0.1:7890
+[https]
+	proxy = http://127.0.0.1:7890
+
+[core]
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only -features=interactive
+[delta]
+  navigate = false
+  line-numbers = false
+  side-by-side = false
+  features = decorations
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default

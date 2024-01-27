@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -15,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="cypher"
+ZSH_THEME="sunrise"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -78,12 +71,10 @@ ZSH_THEME="cypher"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
+	git
+	zsh-autosuggestions
+ 	zsh-syntax-highlighting
 )
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,73 +104,55 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=nvim
+alias v="emacsclient -nw"
 
-# where proxy
-proxy () {
-  export http_proxy="http://127.0.0.1:51837"
-  export https_proxy="http://127.0.0.1:51837"
-  # npm config set proxy http://127.0.0.1:51837
-  # npm config set https-proxy http://127.0.0.1:51837
-  git config --global http.proxy http://127.0.0.1:51837
+set_proxy () {
+  export HTTP_PROXY="http://127.0.0.1:7890"
+  export HTTPS_PROXY="http://127.0.0.1:7890"
+  export ALL_PROXY="http://127.0.0.1:7890"
+  git config --global http.proxy http://127.0.0.1:7890
+  git config --global https.proxy http://127.0.0.1:7890
   echo "HTTP Proxy on"
 }
 
 # where noproxy
-noproxy () {
-  unset http_proxy
-  unset https_proxy
+no_proxy () {
+  unset HTTP_PROXY
+  unset HTTPS_PROXY
+  unset ALL_PROXY
   git config --global --unset http.proxy
+  git config --global --unset https.proxy
   echo "HTTP Proxy off"
 }
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# For nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="/home/civitasv/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-
-alias s="kitty +kitten ssh"
-alias icat="kitty +kitten icat"
-
-# flutter
-export PATH="$HOME/flutter/flutter/bin:$PATH"
-export PUB_HOSTED_URL=https://pub.flutter-io.cn
-export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-export CHROME_EXECUTABLE=microsoft-edge-stable 
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
-
-# CMake
-export PATH="/usr/bin/cmake:$PATH"
-
-# zig
-export PATH="$HOME/Documents/workflow/zig-project/zig-linux-x86_64-0.11.0-dev.3316+ec58b475b/:$PATH"
-
-# vi
-set -o vi
-export EDITOR=nvim
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/civitasv/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/civitasv/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/civitasv/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
     else
-        export PATH="/home/civitasv/miniconda3/bin:$PATH"
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# k8s
-export PATH="/home/civitasv/.local/bin:$PATH"
-source <(kubectl completion zsh)
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
+export DYLD_LIBRARY_PATH=/opt/homebrew/opt/libomp/lib:$DYLD_LIBRARY_PATH
+
+# for zellij
+# eval "$(zellij setup --generate-auto-start zsh)"
+alias cake=$HOME/Documents/project/cake/out/release/src/cake
+alias nick="zellij attach JustForNick"
