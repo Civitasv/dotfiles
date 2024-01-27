@@ -1,3 +1,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@github.com:Civitasv/runvim
+[submodule ".config/doom"]
+	path = .config/doom
+	url = git@github.com:Civitasv/TWE.git

@@ -10,5 +10,7 @@
 - [neovim](./.config/nvim/)
 - [ranger](./.config/ranger/)
 - [rofi](./.config/ranger/)
+- [zellij](./.config/zellij//)
+- [zed](./.config/zed/)
 - [yadm](./.config/yadm/)
 
